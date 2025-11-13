@@ -1,0 +1,90 @@
+[
+{
+    "model": "MainApp.snippet",
+    "pk": 1,
+    "fields": {
+        "name": "Hello world Snippet",
+        "lang": "py",
+        "code": "print(\"Hello world\")",
+        "creation_date": "2025-11-12T18:31:07.518Z",
+        "user": null
+    }
+},
+{
+    "model": "MainApp.snippet",
+    "pk": 2,
+    "fields": {
+        "name": "Second Snippet",
+        "lang": "py",
+        "code": "print(\"Second\")",
+        "creation_date": "2025-11-13T07:39:06.934Z",
+        "user": null
+    }
+},
+{
+    "model": "MainApp.snippet",
+    "pk": 3,
+    "fields": {
+        "name": "first form snippet",
+        "lang": "py",
+        "code": "print('hi')",
+        "creation_date": "2025-11-13T10:15:32.358Z",
+        "user": null
+    }
+},
+{
+    "model": "MainApp.snippet",
+    "pk": 4,
+    "fields": {
+        "name": "second form snippet",
+        "lang": "js",
+        "code": "console.log(\"Hello, World!\");",
+        "creation_date": "2025-11-13T10:17:51.104Z",
+        "user": null
+    }
+},
+{
+    "model": "MainApp.snippet",
+    "pk": 6,
+    "fields": {
+        "name": "fourth snippet",
+        "lang": "go",
+        "code": "func main() {}",
+        "creation_date": "2025-11-13T11:12:18.065Z",
+        "user": null
+    }
+},
+{
+    "model": "MainApp.snippet",
+    "pk": 7,
+    "fields": {
+        "name": "Fifth snippet",
+        "lang": "py",
+        "code": "i += 1",
+        "creation_date": "2025-11-13T11:17:04.024Z",
+        "user": null
+    }
+},
+{
+    "model": "MainApp.snippet",
+    "pk": 8,
+    "fields": {
+        "name": "First html",
+        "lang": "html",
+        "code": "<head></head>",
+        "creation_date": "2025-11-13T11:45:17.699Z",
+        "user": null
+    }
+},
+{
+    "model": "MainApp.snippet",
+    "pk": 9,
+    "fields": {
+        "name": "random snippet",
+        "lang": "cpp",
+        "code": "random",
+        "creation_date": "2025-11-13T14:35:43.378Z",
+        "user": 2
+    }
+}
+]
