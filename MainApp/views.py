@@ -98,3 +98,12 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return redirect(to='home')
+
+
+def my_snippets(request):
+    if request.user.is_authenticated:
+        context = {'pagename': 'Мои сниппеты',
+            'snippets': Snippet.objects.filter(user=request.user)
+        }
+        return render(request, 'pages/my_snippets.html', context)
+    return redirect("snippets-list") # URL для списка сниппетов
