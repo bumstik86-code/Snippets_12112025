@@ -18,5 +18,35 @@
         "code": "print(\"Second\")",
         "creation_date": "2025-11-13T07:39:06.934Z"
     }
+},
+{
+    "model": "MainApp.snippet",
+    "pk": 3,
+    "fields": {
+        "name": "first form snippet",
+        "lang": "py",
+        "code": "print('hi')",
+        "creation_date": "2025-11-13T10:15:32.358Z"
+    }
+},
+{
+    "model": "MainApp.snippet",
+    "pk": 4,
+    "fields": {
+        "name": "second form snippet",
+        "lang": "js",
+        "code": "console.log(\"Hello, World!\");",
+        "creation_date": "2025-11-13T10:17:51.104Z"
+    }
+},
+{
+    "model": "MainApp.snippet",
+    "pk": 5,
+    "fields": {
+        "name": "Third form snippet",
+        "lang": "js",
+        "code": "a === 5",
+        "creation_date": "2025-11-13T10:19:35.208Z"
+    }
 }
 ]
