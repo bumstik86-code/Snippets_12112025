@@ -2,6 +2,7 @@ from django.http import Http404, HttpResponse, HttpResponseNotAllowed
 from django.shortcuts import get_object_or_404, render, redirect
 from MainApp.forms import SnippetForm
 from MainApp.models import Snippet
+from django.contrib import auth
 
 def index_page(request):
     context = {'pagename': 'PythonBin'}
@@ -74,3 +75,23 @@ def snippet_edit(request, snippet_id):
             
     #         return redirect("snippets-list") # URL для списка сниппетов
     #     return render(request, 'pages/snippet_edit.html', context={"form": form})
+
+
+def login(request):
+    if request.method == 'POST':
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+        # print("username =", username)
+        # print("password =", password)
+        user = auth.authenticate(request, username=username, password=password)
+        if user is not None:
+            auth.login(request, user)
+        else:
+            # Return error message
+            pass
+    return redirect('home')
+
+
+def logout(request):
+    auth.logout(request)
+    return redirect(to='home')
