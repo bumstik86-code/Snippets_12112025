@@ -25,6 +25,7 @@
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Название</th>
+                        <th scope="col">Язык</th>
                         <th scope="col">Дата создания</th>
                     </tr>
                     </thead>
@@ -33,7 +34,8 @@
                         <tr>
                             <td scope="row">{{ snippet.id }}</td>
                             <td><a href="{% url "snippet-detail" snippet.id %}">{{ snippet.name }}</a></td>
-                            <td>{{snippet.creation_date | date }}</td>
+                            <td>{{snippet.lang }}</td>
+                            <td>{{snippet.creation_date | date:"d F Y H:i:s" }}</td>
                         </tr>
                     {% endfor %}
 

@@ -8,5 +8,15 @@
         "code": "print(\"Hello world\")",
         "creation_date": "2025-11-12T18:31:07.518Z"
     }
+},
+{
+    "model": "MainApp.snippet",
+    "pk": 2,
+    "fields": {
+        "name": "Second Snippet",
+        "lang": "py",
+        "code": "print(\"Second\")",
+        "creation_date": "2025-11-13T07:39:06.934Z"
+    }
 }
 ]
