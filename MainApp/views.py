@@ -16,7 +16,7 @@ def snippet_detail(request, snippet_id):
     try:
         snippet = Snippet.objects.get(id=snippet_id)
     except ObjectDoesNotExist:
-        return Http404
+        raise Http404(f"Snippet with Id={snippet_id} does not exist.")
     else:
         context={
             'snippet': snippet
