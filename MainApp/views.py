@@ -1,7 +1,6 @@
 from django.http import Http404
 from django.shortcuts import render, redirect
 from MainApp.models import Snippet
-from django.core.exceptions import ObjectDoesNotExist
 
 def index_page(request):
     context = {'pagename': 'PythonBin'}
@@ -15,10 +14,11 @@ def add_snippet_page(request):
 def snippet_detail(request, snippet_id):
     try:
         snippet = Snippet.objects.get(id=snippet_id)
-    except ObjectDoesNotExist:
+    except Snippet.DoesNotExist:
         raise Http404(f"Snippet with Id={snippet_id} does not exist.")
     else:
         context={
+            'pagename': 'Cниппет',
             'snippet': snippet
         }
         return render(request, "pages/snippet_detail.html", context=context)
