@@ -19,10 +19,10 @@ class SnippetForm(ModelForm):
                 "rows": 5,
                 "class": "input-large",
                 'style': 'width: 50% !important; resize: vertical !important;'
-            })            
+            })
         }
-        
-        #exclude = [creation_date]
+
+    #exclude = [creation_date]
     def clean_name(self):
         """Метод для проверки длины поля <name>"""
         snippet_name = self.cleaned_data.get("name")
