@@ -16,17 +16,19 @@
                         <a class="btn btn-outline-secondary" href="{% url "snippets-add" %}">
                             Добавить сниппет
                         </a>
-                    </li>
+                    </li>&nbsp;
                     <li class="form-inline">
                         <a class="btn btn-outline-info" href="{% url "snippets-list" %}">
                             Посмотреть сниппеты
                         </a>
-                    </li>
+                    </li>&nbsp;
+                    {% if request.user.is_authenticated %}
                     <li class="form-inline">
                         <a class="btn btn-outline-info" href="{% url "my-snippets" %}">
                             Мои сниппеты
                         </a>
-                    </li>
+                    </li>&nbsp;
+                    {% endif %}
                 </ul>
             </div>
             {% if request.user.is_authenticated %}
