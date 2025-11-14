@@ -21,6 +21,7 @@
                         <th scope="col">Дата создания</th>
                         <th scope="col">Действия</th>
                         <th scope="col">Пользователь</th>
+                        <th scope="col">Тип сниппета</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -30,17 +31,20 @@
                             <td>
                                 <a href="{% url "snippet-detail" snippet.id %}">{{ snippet.name }}</a>
                                 &nbsp;
-                                <a href="{% url "snippet-delete" snippet.id %}">
-                                    <i style="color: blue;" class="bi bi-trash"></i>
-                                </a>
-                                &nbsp;
-                                <a href="{% url "snippet-edit" snippet.id %}">
-                                    <i style="color: blue;" class="bi bi-pen"></i>
-                                </a>
+                                {% if request.user.is_authenticated and request.user.username == snippet.user.username %}
+                                    <a href="{% url "snippet-delete" snippet.id %}">
+                                        <i style="color: blue;" class="bi bi-trash"></i>
+                                    </a>
+                                    &nbsp;
+                                    <a href="{% url "snippet-edit" snippet.id %}">
+                                        <i style="color: blue;" class="bi bi-pen"></i>
+                                    </a>
+                                {% endif %}
                             </td>
                             <td>{{snippet.lang }}</td>
                             <td>{{snippet.creation_date | date:"d F Y H:i:s" }}</td>
                             <td>
+                                {% if request.user.is_authenticated and request.user.username == snippet.user.username %}
                                 <div style="display: flex; flex-direction: row;">
                                     <a href="{% url "snippet-edit" snippet.id %}">
                                         <button type="submit" class="btn btn-primary">
@@ -55,8 +59,18 @@
                                         </button>
                                     </form>
                                 </div>
+                                {% endif %}
                             </td>
                             <td>{{ snippet.user.username }}</td>
+                            
+                            <td>
+                                {% if snippet.public %}
+                                    Public
+                                {% else %}
+                                    Private
+                                {% endif %}
+                            </td>
+                            
                         </tr>
                     {% empty %}
                         <tr>

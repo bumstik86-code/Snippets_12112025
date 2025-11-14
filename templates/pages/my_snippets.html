@@ -21,6 +21,7 @@
                         <th scope="col">Дата создания</th>
                         <th scope="col">Действия</th>
                         <th scope="col">Пользователь</th>
+                        <th scope="col">Тип сниппета</th>                        
                     </tr>
                     </thead>
                     <tbody>
@@ -52,6 +53,13 @@
                                 </div>
                             </td>
                             <td>{{ snippet.user.username }}</td>
+                            <td>
+                                {% if snippet.public %}
+                                    Public
+                                {% else %}
+                                    Private
+                                {% endif %}
+                            </td>                            
                         </tr>
                     {% empty %}
                         <tr>

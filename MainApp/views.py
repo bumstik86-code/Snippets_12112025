@@ -9,7 +9,7 @@ def index_page(request):
     context = {'pagename': 'PythonBin'}
     return render(request, 'pages/index.html', context)
 
-
+@login_required
 def add_snippet_page(request):
     # Создаем пустую форму при запросе GET
     if request.method == "GET":
@@ -47,16 +47,15 @@ def snippet_detail(request, snippet_id):
 
 def snippets_page(request):
     context = {'pagename': 'Просмотр сниппетов',
-                'snippets': Snippet.objects.all()
+                'snippets': Snippet.objects.filter(public=True)
             }
     return render(request, 'pages/view_snippets.html', context)
 
-
+@login_required
 def snippet_delete(request, snippet_id):
     if request.method == "GET" or request.method == "POST":
-        if request.user.is_authenticated:
-            snippet = get_object_or_404(Snippet, id=snippet_id)
-            snippet.delete()
+        snippet = get_object_or_404(Snippet.objects.filter(user=request.user), id=snippet_id)
+        snippet.delete()
     return redirect("snippets-list") # URL для списка сниппетов
 
 
@@ -64,7 +63,7 @@ def snippet_edit(request, snippet_id):
     # pass
     # Создаем форму при запросе GET
     if request.method == "GET":
-        snippet = get_object_or_404(Snippet, id=snippet_id)
+        snippet = get_object_or_404(Snippet.objects.filter(user=request.user), id=snippet_id)
         form = SnippetForm(instance=snippet)
         context = {
             'pagename': 'Редактирование сниппета',
@@ -77,6 +76,7 @@ def snippet_edit(request, snippet_id):
         snippet.name = form['name']
         snippet.lang = form['lang']
         snippet.code = form['code']
+        snippet.public = form.get('public', False)
         snippet.save()
         return redirect("snippets-list") # URL для списка сниппетов
 
