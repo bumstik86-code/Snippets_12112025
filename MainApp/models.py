@@ -1,3 +1,4 @@
+import datetime
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -17,4 +18,12 @@ class Snippet(models.Model):
     user = models.ForeignKey(to=User, on_delete=models.CASCADE,
         blank=True, null=True)
     public = models.BooleanField(default=True) # True = public, False = private
+
+
+class Comment(models.Model):
+    text = models.TextField(max_length=2000, verbose_name="Текст комментария")
+    creation_date = models.DateTimeField(default=datetime.datetime.now, verbose_name="Дата создания")
+    author = models.ForeignKey(to=User, on_delete=models.CASCADE, verbose_name="Автор")
+    snippet = models.ForeignKey(to='Snippet',on_delete=models.CASCADE, related_name="comments", verbose_name="Сниппет")
+
 
