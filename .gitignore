@@ -2,7 +2,8 @@
 .vscode/
 *venv/
 __pycache__/
-*.pyc
+*.py[cod]
 db.*
 *.sqlite
 *.sqlite3
+staticfiles/
