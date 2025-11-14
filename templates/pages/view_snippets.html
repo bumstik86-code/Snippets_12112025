@@ -29,8 +29,13 @@
                             <td scope="row">{{ snippet.id }}</td>
                             <td>
                                 <a href="{% url "snippet-detail" snippet.id %}">{{ snippet.name }}</a>
+                                &nbsp;
                                 <a href="{% url "snippet-delete" snippet.id %}">
                                     <i style="color: blue;" class="bi bi-trash"></i>
+                                </a>
+                                &nbsp;
+                                <a href="{% url "snippet-edit" snippet.id %}">
+                                    <i style="color: blue;" class="bi bi-pen"></i>
                                 </a>
                             </td>
                             <td>{{snippet.lang }}</td>
